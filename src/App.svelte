@@ -169,9 +169,11 @@
               </td>
               <td class="border px-4 py-2">
                 <a
-                  href="https://secure.greenbits.com/products/${p.id}?activeTab=details"
-                  title="Open in Green Bits">
-                  link
+                  href="https://secure.greenbits.com/products/{p.id}?activeTab=details"
+                  title="Open in Green Bits"
+                  target="_blank"
+                  rel="noopener">
+                  <img src="link.svg" alt="" />
                 </a>
               </td>
             </tr>
