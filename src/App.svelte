@@ -6,26 +6,26 @@
   let authenticated = true;
 
   onMount(async () => {
-    fetch("https://inventorymgrclient.ptar.now.sh/api/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: {
-        password: "exhale123!"
-      }
-    })
-      .then(response => {
-        console.log(response);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    // const response = await fetch(
-    //   "https://inventorymgrclient.ptar.now.sh/api/inventory"
-    // );
-    // const resBody = await response.json();
-    // products = _.orderBy(resBody, ["expiration_date"], ["asc"]);
+    // fetch("https://inventorymgrclient.ptar.now.sh/api/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json"
+    //   },
+    //   body: {
+    //     password: "exhale123!"
+    //   }
+    // })
+    //   .then(response => {
+    //     console.log(response);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+    const response = await fetch(
+      "https://inventorymgrclient.ptar.now.sh/api/inventory"
+    );
+    const resBody = await response.json();
+    products = _.orderBy(resBody, ["expiration_date"], ["asc"]);
   });
 </script>
 
