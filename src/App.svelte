@@ -21,9 +21,7 @@
     //   .catch(err => {
     //     console.log(err);
     //   });
-    const response = await fetch(
-      "https://inventorymgrclient.ptar.now.sh/api/inventory"
-    );
+    const response = await fetch("/api/inventory");
     const resBody = await response.json();
     products = _.orderBy(resBody, ["expiration_date"], ["asc"]);
   });
@@ -141,13 +139,13 @@
     <table class="sans-serif text-sm table-fixed w-full max-w-48 mx-auto">
       <thead>
         <tr>
-          <th class="px-4 w-5 py-2">Expired</th>
-          <th class="px-4 w-10 py-2">Expires</th>
-          <th class="px-4 w-10 py-2">Expiry date</th>
-          <th class="px-4 w-5 py-2">Qty.</th>
-          <th class="px-4 w-48 py-2">Name</th>
-          <th class="px-4 w-10 py-2">SKU</th>
-          <th class="px-4 w-10 py-2">Open in GB</th>
+          <th class="px-2 w-1/7 py-2">Expired</th>
+          <th class="px-2 w-1/7 py-2">Expires</th>
+          <th class="px-2 w-1/7 py-2">Expiry date</th>
+          <th class="px-2 w-1/7 py-2">Qty.</th>
+          <th class="px-2 w-1/4 py-2">SKU</th>
+          <th class="px-2 w-1/7 py-2">Open in GB</th>
+          <th class="px-2 w-1/3 py-2">Name</th>
         </tr>
       </thead>
       <tbody>
@@ -155,19 +153,20 @@
           {#if p.expiration_date}
             <tr
               class={moment(p.expiration_date).isBefore(new Date()) ? 'bg-red-300' : '' || moment(p.expiration_date).isBefore(moment().add(30, 'days')) ? 'bg-orange-300' : ''}>
-              <td class=" border px-4 py-2">
+              <td class="text-center border px-2 py-2">
                 {moment(p.expiration_date).isBefore(new Date()) ? 'Yes' : 'No'}
               </td>
-              <td class="border px-4 py-2">
+              <td class="text-center border px-2 py-2">
                 {moment(p.expiration_date).fromNow()}
               </td>
-              <td class="border px-4 py-2">{p.expiration_date}</td>
-              <td class="border px-2 py-2">
+              <td class="text-center border px-2 py-2">{p.expiration_date}</td>
+              <td class="text-center border px-2 py-2">
                 {p.quantity ? p.quantity.value : 'N/A'}
               </td>
-              <td class="border px-4 py-2">{p.product.name}</td>
-              <td class="border px-2 py-2">{p.sku ? p.sku : 'N/A'}</td>
-              <td class="border px-2 text-center py-2">
+              <td class="text-center border px-2 py-2">
+                {p.sku ? p.sku : 'N/A'}
+              </td>
+              <td class="text-center border px-2 py-2">
                 <a
                   href="https://secure.greenbits.com/products/{p.product.id}?activeTab=details"
                   title="Open in Green Bits"
@@ -181,6 +180,7 @@
                     alt="" />
                 </a>
               </td>
+              <td class="text-left border px-2 py-2">{p.product.name}</td>
             </tr>
           {/if}
         {/each}
