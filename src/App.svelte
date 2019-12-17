@@ -169,7 +169,7 @@
               </td>
               <td class="border px-4 py-2">
                 <a
-                  href="https://secure.greenbits.com/products/{p.id}"
+                  href="https://secure.greenbits.com/products?byname={p.name}"
                   title="Open in Green Bits"
                   target="_blank"
                   rel="noopener">
