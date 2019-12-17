@@ -138,15 +138,15 @@
     </div>
   </div>
   {#if products.length}
-    <table class="sans-serif text-sm table-auto w-full max-w-48 mx-auto">
+    <table class="sans-serif text-sm table-fixed w-full max-w-48 mx-auto">
       <thead>
         <tr>
           <th class="px-4 py-2">Expired</th>
           <th class="px-4 py-2">Expires</th>
           <th class="px-4 py-2">Expiry date</th>
+          <th class="px-4 py-2">Qty.</th>
           <th class="px-4 py-2">Name</th>
           <th class="px-4 py-2">SKU</th>
-          <th class="px-4 py-2">Qty.</th>
           <th class="px-4 py-2">Open in GB</th>
         </tr>
       </thead>
@@ -162,11 +162,11 @@
                 {moment(p.expiration_date).fromNow()}
               </td>
               <td class="border px-4 py-2">{p.expiration_date}</td>
-              <td class="border px-4 py-2">{p.product.name}</td>
-              <td class="border px-2 py-2">{p.sku ? p.sku : 'N/A'}</td>
               <td class="border px-2 py-2">
                 {p.quantity ? p.quantity.value : 'N/A'}
               </td>
+              <td class="border px-4 py-2">{p.product.name}</td>
+              <td class="border px-2 py-2">{p.sku ? p.sku : 'N/A'}</td>
               <td class="border px-2 text-center py-2">
                 <a
                   href="https://secure.greenbits.com/products/{p.product.id}?activeTab=details"
