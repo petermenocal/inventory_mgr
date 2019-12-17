@@ -145,7 +145,7 @@
           <th class="px-4 py-2">Expires</th>
           <th class="px-4 py-2">Expiry date</th>
           <th class="px-4 py-2">Qty.</th>
-          <th class="px-4 py-2">Name</th>
+          <th class="px-4 w-1/2 py-2">Name</th>
           <th class="px-4 py-2">SKU</th>
           <th class="px-4 py-2">Open in GB</th>
         </tr>
