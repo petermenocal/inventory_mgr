@@ -161,7 +161,7 @@
               </td>
               <td class="text-center border px-2 py-2">{p.expiration_date}</td>
               <td class="text-center border px-2 py-2">
-                {p.quantity ? p.quantity.value : 'N/A'}
+                {p.quantity ? ~~p.quantity.value : 'N/A'}
               </td>
               <td class="text-center text-xs border px-2 py-2">
                 {p.sku ? p.sku : 'N/A'}
