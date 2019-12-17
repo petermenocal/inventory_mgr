@@ -22004,11 +22004,12 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[1] = list[i];
+    	child_ctx[2] = list[i];
+    	child_ctx[4] = i;
     	return child_ctx;
     }
 
-    // (153:2) {:else}
+    // (189:2) {:else}
     function create_else_block(ctx) {
     	let div1;
     	let div0;
@@ -22023,10 +22024,10 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "Calculating inventory expiration dates.";
     			attr_dev(div0, "class", "loader svelte-zv71m1");
-    			add_location(div0, file, 154, 6, 4875);
-    			add_location(h1, file, 155, 6, 4904);
+    			add_location(div0, file, 190, 6, 6157);
+    			add_location(h1, file, 191, 6, 6186);
     			attr_dev(div1, "class", "w-full h-full flex flex-col items-center justify-center");
-    			add_location(div1, file, 153, 4, 4799);
+    			add_location(div1, file, 189, 4, 6081);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -22044,14 +22045,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(153:2) {:else}",
+    		source: "(189:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (123:2) {#if products.length}
+    // (138:2) {#if products.length}
     function create_if_block(ctx) {
     	let table;
     	let thead;
@@ -22066,6 +22067,10 @@ var app = (function () {
     	let t7;
     	let th4;
     	let t9;
+    	let th5;
+    	let t11;
+    	let th6;
+    	let t13;
     	let tbody;
     	let each_value = /*products*/ ctx[0];
     	let each_blocks = [];
@@ -22089,33 +22094,42 @@ var app = (function () {
     			th2.textContent = "Expiry date";
     			t5 = space();
     			th3 = element("th");
-    			th3.textContent = "Name";
+    			th3.textContent = "Qty";
     			t7 = space();
     			th4 = element("th");
-    			th4.textContent = "Id";
+    			th4.textContent = "SKU";
     			t9 = space();
+    			th5 = element("th");
+    			th5.textContent = "Open in GB";
+    			t11 = space();
+    			th6 = element("th");
+    			th6.textContent = "Name";
+    			t13 = space();
     			tbody = element("tbody");
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(th0, "class", "px-4 py-2");
-    			add_location(th0, file, 126, 10, 3730);
-    			attr_dev(th1, "class", "px-4 py-2");
-    			add_location(th1, file, 127, 10, 3775);
-    			attr_dev(th2, "class", "px-4 py-2");
-    			add_location(th2, file, 128, 10, 3820);
-    			attr_dev(th3, "class", "px-4 py-2");
-    			add_location(th3, file, 129, 10, 3869);
-    			attr_dev(th4, "class", "px-4 py-2");
-    			add_location(th4, file, 130, 10, 3911);
-    			attr_dev(tr, "class", "text-left");
-    			add_location(tr, file, 125, 8, 3697);
-    			add_location(thead, file, 124, 6, 3681);
-    			add_location(tbody, file, 133, 6, 3976);
-    			attr_dev(table, "class", "sans-serif text-sm table-auto w-full max-w-48 mx-auto");
-    			add_location(table, file, 123, 4, 3605);
+    			attr_dev(th0, "class", "px-2 w-15 py-2");
+    			add_location(th0, file, 141, 10, 4076);
+    			attr_dev(th1, "class", "px-2 w-1/8 py-2");
+    			add_location(th1, file, 142, 10, 4126);
+    			attr_dev(th2, "class", "px-2 w-1/8 py-2");
+    			add_location(th2, file, 143, 10, 4177);
+    			attr_dev(th3, "class", "px-2 w-15 py-2 ");
+    			add_location(th3, file, 144, 10, 4232);
+    			attr_dev(th4, "class", "px-2 w-1/8 py-2");
+    			add_location(th4, file, 145, 10, 4279);
+    			attr_dev(th5, "class", "px-2 w-15 py-2");
+    			add_location(th5, file, 146, 10, 4326);
+    			attr_dev(th6, "class", "px-2 w-1/2 py-2");
+    			add_location(th6, file, 147, 10, 4379);
+    			add_location(tr, file, 140, 8, 4061);
+    			add_location(thead, file, 139, 6, 4045);
+    			add_location(tbody, file, 150, 6, 4452);
+    			attr_dev(table, "class", "sans-serif text-sm table-fixed w-full max-w-48 mx-auto");
+    			add_location(table, file, 138, 4, 3968);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, table, anchor);
@@ -22130,7 +22144,11 @@ var app = (function () {
     			append_dev(tr, th3);
     			append_dev(tr, t7);
     			append_dev(tr, th4);
-    			append_dev(table, t9);
+    			append_dev(tr, t9);
+    			append_dev(tr, th5);
+    			append_dev(tr, t11);
+    			append_dev(tr, th6);
+    			append_dev(table, t13);
     			append_dev(table, tbody);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
@@ -22171,40 +22189,54 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(123:2) {#if products.length}",
+    		source: "(138:2) {#if products.length}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (136:10) {#if p.expiration_date}
+    // (153:10) {#if p.expiration_date}
     function create_if_block_1(ctx) {
     	let tr;
     	let td0;
 
-    	let t0_value = (moment(/*p*/ ctx[1].expiration_date).isBefore(new Date())
+    	let t0_value = (moment(/*p*/ ctx[2].expiration_date).isBefore(new Date())
     	? "Yes"
     	: "No") + "";
 
     	let t0;
     	let t1;
     	let td1;
-    	let t2_value = moment(/*p*/ ctx[1].expiration_date).fromNow() + "";
+    	let t2_value = moment(/*p*/ ctx[2].expiration_date).fromNow() + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*p*/ ctx[1].expiration_date + "";
+    	let t4_value = /*p*/ ctx[2].expiration_date + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*p*/ ctx[1].product.name + "";
+
+    	let t6_value = (/*p*/ ctx[2].quantity
+    	? /*p*/ ctx[2].quantity.value
+    	: "N/A") + "";
+
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = (/*p*/ ctx[1].id ? /*p*/ ctx[1].id : "N/A") + "";
+    	let t8_value = (/*p*/ ctx[2].sku ? /*p*/ ctx[2].sku : "N/A") + "";
     	let t8;
     	let t9;
+    	let td5;
+    	let a;
+    	let img;
+    	let img_src_value;
+    	let a_href_value;
+    	let t10;
+    	let td6;
+    	let t11_value = /*p*/ ctx[2].product.name + "";
+    	let t11;
+    	let t12;
     	let tr_class_value;
 
     	const block = {
@@ -22225,24 +22257,46 @@ var app = (function () {
     			td4 = element("td");
     			t8 = text(t8_value);
     			t9 = space();
-    			attr_dev(td0, "class", " border px-4 py-2");
-    			add_location(td0, file, 138, 14, 4255);
-    			attr_dev(td1, "class", "border px-4 py-2");
-    			add_location(td1, file, 141, 14, 4400);
-    			attr_dev(td2, "class", "border px-4 py-2");
-    			add_location(td2, file, 144, 14, 4518);
-    			attr_dev(td3, "class", "border px-4 py-2");
-    			add_location(td3, file, 145, 14, 4586);
-    			attr_dev(td4, "class", "border px-4 py-2");
-    			add_location(td4, file, 146, 14, 4651);
+    			td5 = element("td");
+    			a = element("a");
+    			img = element("img");
+    			t10 = space();
+    			td6 = element("td");
+    			t11 = text(t11_value);
+    			t12 = space();
+    			attr_dev(td0, "class", "text-center border px-2 py-2");
+    			add_location(td0, file, 155, 14, 4790);
+    			attr_dev(td1, "class", "text-center border px-2 py-2");
+    			add_location(td1, file, 158, 14, 4946);
+    			attr_dev(td2, "class", "text-center border px-2 py-2");
+    			add_location(td2, file, 161, 14, 5076);
+    			attr_dev(td3, "class", "text-center border px-2 py-2");
+    			add_location(td3, file, 162, 14, 5156);
+    			attr_dev(td4, "class", "text-center text-xs border px-2 py-2");
+    			add_location(td4, file, 165, 14, 5288);
+    			if (img.src !== (img_src_value = "link.svg")) attr_dev(img, "src", img_src_value);
+    			attr_dev(img, "class", "mx-auto");
+    			attr_dev(img, "width", "15px");
+    			attr_dev(img, "height", "15px");
+    			attr_dev(img, "alt", "");
+    			add_location(img, file, 174, 18, 5700);
+    			attr_dev(a, "href", a_href_value = "https://secure.greenbits.com/products/" + /*p*/ ctx[2].product.id + "?activeTab=details");
+    			attr_dev(a, "title", "Open in Green Bits");
+    			attr_dev(a, "target", "_blank");
+    			attr_dev(a, "rel", "noopener");
+    			add_location(a, file, 169, 16, 5470);
+    			attr_dev(td5, "class", "text-center border px-2 py-2");
+    			add_location(td5, file, 168, 14, 5412);
+    			attr_dev(td6, "class", "text-left border px-2 py-2");
+    			add_location(td6, file, 182, 14, 5928);
 
-    			attr_dev(tr, "class", tr_class_value = moment(/*p*/ ctx[1].expiration_date).isBefore(new Date())
+    			attr_dev(tr, "class", tr_class_value = "hover:bg-green-300 " + (moment(/*p*/ ctx[2].expiration_date).isBefore(new Date())
     			? "bg-red-300"
-    			:  moment(/*p*/ ctx[1].expiration_date).isBefore(moment().add(30, "days"))
+    			:  moment(/*p*/ ctx[2].expiration_date).isBefore(moment().add(30, "days"))
     				? "bg-orange-300"
-    				: "");
+    				:  ~/*idx*/ ctx[4] & 1 ? "bg-gray-100" : ""));
 
-    			add_location(tr, file, 136, 12, 4060);
+    			add_location(tr, file, 153, 12, 4541);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -22261,22 +22315,39 @@ var app = (function () {
     			append_dev(tr, td4);
     			append_dev(td4, t8);
     			append_dev(tr, t9);
+    			append_dev(tr, td5);
+    			append_dev(td5, a);
+    			append_dev(a, img);
+    			append_dev(tr, t10);
+    			append_dev(tr, td6);
+    			append_dev(td6, t11);
+    			append_dev(tr, t12);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*products*/ 1 && t0_value !== (t0_value = (moment(/*p*/ ctx[1].expiration_date).isBefore(new Date())
+    			if (dirty[0] & /*products*/ 1 && t0_value !== (t0_value = (moment(/*p*/ ctx[2].expiration_date).isBefore(new Date())
     			? "Yes"
     			: "No") + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty[0] & /*products*/ 1 && t2_value !== (t2_value = moment(/*p*/ ctx[1].expiration_date).fromNow() + "")) set_data_dev(t2, t2_value);
-    			if (dirty[0] & /*products*/ 1 && t4_value !== (t4_value = /*p*/ ctx[1].expiration_date + "")) set_data_dev(t4, t4_value);
-    			if (dirty[0] & /*products*/ 1 && t6_value !== (t6_value = /*p*/ ctx[1].product.name + "")) set_data_dev(t6, t6_value);
-    			if (dirty[0] & /*products*/ 1 && t8_value !== (t8_value = (/*p*/ ctx[1].id ? /*p*/ ctx[1].id : "N/A") + "")) set_data_dev(t8, t8_value);
+    			if (dirty[0] & /*products*/ 1 && t2_value !== (t2_value = moment(/*p*/ ctx[2].expiration_date).fromNow() + "")) set_data_dev(t2, t2_value);
+    			if (dirty[0] & /*products*/ 1 && t4_value !== (t4_value = /*p*/ ctx[2].expiration_date + "")) set_data_dev(t4, t4_value);
 
-    			if (dirty[0] & /*products*/ 1 && tr_class_value !== (tr_class_value = moment(/*p*/ ctx[1].expiration_date).isBefore(new Date())
+    			if (dirty[0] & /*products*/ 1 && t6_value !== (t6_value = (/*p*/ ctx[2].quantity
+    			? /*p*/ ctx[2].quantity.value
+    			: "N/A") + "")) set_data_dev(t6, t6_value);
+
+    			if (dirty[0] & /*products*/ 1 && t8_value !== (t8_value = (/*p*/ ctx[2].sku ? /*p*/ ctx[2].sku : "N/A") + "")) set_data_dev(t8, t8_value);
+
+    			if (dirty[0] & /*products*/ 1 && a_href_value !== (a_href_value = "https://secure.greenbits.com/products/" + /*p*/ ctx[2].product.id + "?activeTab=details")) {
+    				attr_dev(a, "href", a_href_value);
+    			}
+
+    			if (dirty[0] & /*products*/ 1 && t11_value !== (t11_value = /*p*/ ctx[2].product.name + "")) set_data_dev(t11, t11_value);
+
+    			if (dirty[0] & /*products*/ 1 && tr_class_value !== (tr_class_value = "hover:bg-green-300 " + (moment(/*p*/ ctx[2].expiration_date).isBefore(new Date())
     			? "bg-red-300"
-    			:  moment(/*p*/ ctx[1].expiration_date).isBefore(moment().add(30, "days"))
+    			:  moment(/*p*/ ctx[2].expiration_date).isBefore(moment().add(30, "days"))
     				? "bg-orange-300"
-    				: "")) {
+    				:  ~/*idx*/ ctx[4] & 1 ? "bg-gray-100" : ""))) {
     				attr_dev(tr, "class", tr_class_value);
     			}
     		},
@@ -22289,17 +22360,17 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(136:10) {#if p.expiration_date}",
+    		source: "(153:10) {#if p.expiration_date}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (135:8) {#each products as p}
+    // (152:8) {#each products as p, idx}
     function create_each_block(ctx) {
     	let if_block_anchor;
-    	let if_block = /*p*/ ctx[1].expiration_date && create_if_block_1(ctx);
+    	let if_block = /*p*/ ctx[2].expiration_date && create_if_block_1(ctx);
 
     	const block = {
     		c: function create() {
@@ -22311,7 +22382,7 @@ var app = (function () {
     			insert_dev(target, if_block_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (/*p*/ ctx[1].expiration_date) {
+    			if (/*p*/ ctx[2].expiration_date) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -22334,7 +22405,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(135:8) {#each products as p}",
+    		source: "(152:8) {#each products as p, idx}",
     		ctx
     	});
 
@@ -22369,12 +22440,12 @@ var app = (function () {
     			t3 = space();
     			if_block.c();
     			attr_dev(div0, "class", "w-1/2 h-1/2 text-center bg-red-300");
-    			add_location(div0, file, 117, 4, 3409);
+    			add_location(div0, file, 132, 4, 3772);
     			attr_dev(div1, "class", "w-1/2 h-1/2 text-center bg-orange-300");
-    			add_location(div1, file, 118, 4, 3475);
+    			add_location(div1, file, 133, 4, 3838);
     			attr_dev(div2, "class", "flex flex-row items-center justify-center");
-    			add_location(div2, file, 116, 2, 3349);
-    			add_location(div3, file, 115, 0, 3341);
+    			add_location(div2, file, 131, 2, 3712);
+    			add_location(div3, file, 130, 0, 3704);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -22422,9 +22493,10 @@ var app = (function () {
 
     function instance($$self, $$props, $$invalidate) {
     	let products = [];
+    	let authenticated = true;
 
     	onMount(async () => {
-    		const response = await fetch("https://inventorymgrclient.ptar.now.sh/api/inventory");
+    		const response = await fetch("/api/inventory");
     		const resBody = await response.json();
     		$$invalidate(0, products = lodash.orderBy(resBody, ["expiration_date"], ["asc"]));
     	});
@@ -22435,6 +22507,7 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("products" in $$props) $$invalidate(0, products = $$props.products);
+    		if ("authenticated" in $$props) authenticated = $$props.authenticated;
     	};
 
     	return [products];
@@ -22455,10 +22528,7 @@ var app = (function () {
     }
 
     const app = new App({
-    	target: document.body,
-    	props: {
-    		name: 'world'
-    	}
+      target: document.body
     });
 
     return app;

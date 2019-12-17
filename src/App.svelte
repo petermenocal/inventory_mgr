@@ -139,20 +139,20 @@
     <table class="sans-serif text-sm table-fixed w-full max-w-48 mx-auto">
       <thead>
         <tr>
-          <th class="px-2 w-1/7 py-2">Expired</th>
-          <th class="px-2 w-1/7 py-2">Expires</th>
-          <th class="px-2 w-1/7 py-2">Expiry date</th>
-          <th class="px-2 w-1/7 py-2">Qty.</th>
-          <th class="px-2 w-1/4 py-2">SKU</th>
-          <th class="px-2 w-1/7 py-2">Open in GB</th>
-          <th class="px-2 w-1/3 py-2">Name</th>
+          <th class="px-2 w-15 py-2">Expired</th>
+          <th class="px-2 w-1/8 py-2">Expires</th>
+          <th class="px-2 w-1/8 py-2">Expiry date</th>
+          <th class="px-2 w-15 py-2 ">Qty</th>
+          <th class="px-2 w-1/8 py-2">SKU</th>
+          <th class="px-2 w-15 py-2">Open in GB</th>
+          <th class="px-2 w-1/2 py-2">Name</th>
         </tr>
       </thead>
       <tbody>
-        {#each products as p}
+        {#each products as p, idx}
           {#if p.expiration_date}
             <tr
-              class={moment(p.expiration_date).isBefore(new Date()) ? 'bg-red-300' : '' || moment(p.expiration_date).isBefore(moment().add(30, 'days')) ? 'bg-orange-300' : ''}>
+              class="hover:bg-green-300 {moment(p.expiration_date).isBefore(new Date()) ? 'bg-red-300' : '' || moment(p.expiration_date).isBefore(moment().add(30, 'days')) ? 'bg-orange-300' : '' || ~idx & 1 ? 'bg-gray-100' : ''}">
               <td class="text-center border px-2 py-2">
                 {moment(p.expiration_date).isBefore(new Date()) ? 'Yes' : 'No'}
               </td>
@@ -163,7 +163,7 @@
               <td class="text-center border px-2 py-2">
                 {p.quantity ? p.quantity.value : 'N/A'}
               </td>
-              <td class="text-center border px-2 py-2">
+              <td class="text-center text-xs border px-2 py-2">
                 {p.sku ? p.sku : 'N/A'}
               </td>
               <td class="text-center border px-2 py-2">
@@ -175,8 +175,8 @@
                   <img
                     src="link.svg"
                     class="mx-auto"
-                    width="25px"
-                    height="25px"
+                    width="15px"
+                    height="15px"
                     alt="" />
                 </a>
               </td>
