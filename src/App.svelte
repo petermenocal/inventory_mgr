@@ -173,7 +173,7 @@
                   title="Open in Green Bits"
                   target="_blank"
                   rel="noopener">
-                  <img src="link.svg" alt="" />
+                  <img src="link.svg" width="50px" height="50px" alt="" />
                 </a>
               </td>
             </tr>
