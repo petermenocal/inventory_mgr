@@ -187,7 +187,7 @@
       </tbody>
     </table>
   {:else}
-    <div class="w-full h-full flex flex-col items-center justify-center">
+    <div class="w-full h-full flex flex-col items-center justify-center pt-5">
       <div class="loader" />
       <h1>Calculating inventory expiration dates.</h1>
     </div>
