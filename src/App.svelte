@@ -163,13 +163,13 @@
               </td>
               <td class="border px-4 py-2">{p.expiration_date}</td>
               <td class="border px-4 py-2">{p.product.name}</td>
-              <td class="border px-4 py-2">{p.sku ? p.sku : 'N/A'}</td>
-              <td class="border px-4 py-2">
+              <td class="border px-2 py-2">{p.sku ? p.sku : 'N/A'}</td>
+              <td class="border px-2 py-2">
                 {p.quantity ? p.quantity.value : 'N/A'}
               </td>
-              <td class="border px-4 py-2">
+              <td class="border px-2 text-center py-2">
                 <a
-                  href="https://secure.greenbits.com/products?by_name={p.name}"
+                  href="https://secure.greenbits.com/products?by_name={p.product.name}"
                   title="Open in Green Bits"
                   target="_blank"
                   rel="noopener">
