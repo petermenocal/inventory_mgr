@@ -147,6 +147,7 @@
           <th class="px-4 py-2">Name</th>
           <th class="px-4 py-2">SKU</th>
           <th class="px-4 py-2">Qty.</th>
+          <th class="px-4 py-2">Open in GB</th>
         </tr>
       </thead>
       <tbody>
@@ -165,6 +166,13 @@
               <td class="border px-4 py-2">{p.sku ? p.sku : 'N/A'}</td>
               <td class="border px-4 py-2">
                 {p.quantity ? p.quantity.value : 'N/A'}
+              </td>
+              <td class="border px-4 py-2">
+                <a
+                  href="https://secure.greenbits.com/products/${p.id}?activeTab=details"
+                  title="Open in Green Bits">
+                  link
+                </a>
               </td>
             </tr>
           {/if}
