@@ -140,7 +140,7 @@
   {#if products.length}
     <table class="sans-serif text-sm table-auto w-full max-w-48 mx-auto">
       <thead>
-        <tr class="text-left">
+        <tr>
           <th class="px-4 py-2">Expired</th>
           <th class="px-4 py-2">Expires</th>
           <th class="px-4 py-2">Expiry date</th>
@@ -173,7 +173,12 @@
                   title="Open in Green Bits"
                   target="_blank"
                   rel="noopener">
-                  <img src="link.svg" width="25px" height="25px" alt="" />
+                  <img
+                    src="link.svg"
+                    class="mx-auto"
+                    width="25px"
+                    height="25px"
+                    alt="" />
                 </a>
               </td>
             </tr>
